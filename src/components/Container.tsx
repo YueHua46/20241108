@@ -2,7 +2,9 @@
 
 import React, { useState } from "react";
 import DragBox from "./DragBox";
-import PDFDocument from "./PDFDocument";
+import dynamic from "next/dynamic";
+
+const PDFDocument = dynamic(() => import("./PDFDocument"), { ssr: false });
 
 export default function Container() {
     const [pdfFile, setPdfFile] = useState<File | null>(null);
